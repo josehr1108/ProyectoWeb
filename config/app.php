@@ -171,16 +171,17 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        WikiCupon\Providers\AppServiceProvider::class,
+        WikiCupon\Providers\AuthServiceProvider::class,
+        // WikiCupon\Providers\BroadcastServiceProvider::class,
+        WikiCupon\Providers\EventServiceProvider::class,
+        WikiCupon\Providers\RouteServiceProvider::class,
 
         /*
          * Other Service Providers
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -230,6 +231,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace WikiCupon\Http\Controllers;
 
 use Laravel\Socialite\Facades\Socialite;
-use App\User;
+use WikiCupon\User;
 use Illuminate\Support\Facades\Auth;
 
 class FacebookController extends Controller
