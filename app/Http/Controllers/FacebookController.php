@@ -34,7 +34,7 @@ class FacebookController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'password' => null,
-                'tipoUsuario' => 'Usuario',
+                'userType' => 'Usuario',
             ]);
             Auth::login($new_user);
         }

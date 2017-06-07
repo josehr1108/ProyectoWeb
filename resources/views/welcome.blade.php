@@ -59,6 +59,26 @@
                 text-transform: uppercase;
             }
 
+            #welcomeBg{
+                width: 100%;
+                height: 100%;
+                background: #1b6d85 url({{asset('images/fondoViajes.jpeg')}}) no-repeat center;
+                background-size: cover;
+            }
+
+            #textBlock{
+                padding-top: 8%;
+                color: #16080f;
+            }
+
+            #paragraph{
+                color: #110c0d;
+                font-size: large;
+                font-family: Avenir, Helvetica, sans-serif;
+                font-weight: bold;
+                padding-top: 8%;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -77,8 +97,11 @@
                 </div>
             @endif
 
-            <div class="content" style="background-color: #7b8b7a; width: 100%">
-                <h1>Hola pues!</h1>
+            <div class="content" id="welcomeBg">
+                <div id="textBlock">
+                    <h1>Bienvenido a WikiCupon!</h1>
+                    <p id="paragraph">Encuentra tus cupones favoritos en el sitio del mayor catalogo de cupones de Costa Rica!</p>
+                </div>
             </div>
         </div>
     </body>
