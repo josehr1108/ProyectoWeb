@@ -11,9 +11,8 @@
     <title>{{ config('app.name', 'PrograWeb') }}</title>
 
     <!-- Styles -->
-    {!!Html::style('css/app.css')!!}
-    {!!Html::style('css/base.css')!!}
-    {!!Html::style('css/font-awesome.min.css')!!}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/font-awesome.min.css')}}">
 </head>
 <body>
     <div id="app">
@@ -72,10 +71,11 @@
                 </div>
             </div>
         </nav>
+
         @yield('content')
     </div>
 
     <!-- Scripts -->
-    {!!Html::script('js/app.js')!!}
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
