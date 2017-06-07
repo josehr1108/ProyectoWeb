@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace WikiCupon\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
