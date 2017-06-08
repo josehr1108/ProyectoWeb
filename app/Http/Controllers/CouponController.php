@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coupon;
 use Illuminate\Http\Request;
 
 class CouponController extends Controller
@@ -13,9 +14,9 @@ class CouponController extends Controller
      */
     public function index()
     {
-        //
+        $coupons = Coupon::all()->toArray();
+        return response()->json($coupons);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +35,14 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            Coupon::create($request->all());
+            return response()->json(['mensajeRespuesta' => "El cupon fue generado exitosamente."],200);
+
+        }catch (\Exception $exception){
+            $exceptionMsg = "Error: {$exception->getMessage()}";
+            return response()->json(['mensajeRespuesta' => $exceptionMsg],500);
+        }
     }
 
     /**
@@ -45,7 +53,12 @@ class CouponController extends Controller
      */
     public function show($id)
     {
-        //
+        $coupon = Coupon::find($id);
+        if($coupon){
+            return response()->json($coupon,200);
+        }else{
+            return response()->json(['mensajeError' => 'Lo sentimos, el cupon que desea encontrar no existe'],404);
+        }
     }
 
     /**
@@ -68,7 +81,31 @@ class CouponController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $coupon = Coupon::find($id);
+        if($coupon){
+            try{
+                $coupon->information = $request->information;
+                $coupon->image = $request->image;
+                $coupon->expiration_date = $request->expiration_date;
+                $coupon->type = $request->type;
+                $coupon->discount = $request->discount;
+                $coupon->original_price = $request->original_price;
+                $coupon->current_price = $request->current_price;
+                $coupon->city = $request->city;
+                $coupon->address = $request->address;
+                $coupon->schedule = $request->schedule;
+                $coupon->use_interval = $request->use_interval;
+
+                $coupon->save();
+
+                return response()->json(['mensajeExistoso' => 'El cupon fue actualizado adecuadamente por el sistema.'],200);
+            }catch (Exception $exception){
+                $mensaje = $exception->getMessage();
+                return response()->json(['mensajeExistoso' => $mensaje],500);
+            }
+        }else{
+            return response()->json(['mensajeError' => 'El cupon que desea actualizar no se ha podido crear.'],404);
+        }
     }
 
     /**
@@ -79,8 +116,15 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $coupon = Coupon::find($id);
+        if($coupon){
+            $coupon->delete();
+            return response()->json(['mensaje' => 'El cupon ha sido eliminado exitosamente.'],404);
+        }else{
+            return response()->json(['mensaje' => 'Lo sentimos, el cupon no ha podido ser eliminado.'],404);
+        }
     }
+
 
     public function vistaCupon(){
         return view('coupon.coupon');
