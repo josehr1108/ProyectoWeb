@@ -17,9 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
 
 Route::get('auth/facebook', 'FacebookController@redirectToProvider');
 Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
 
-Route::get('/coupon/coupon', 'CouponController@vistaCupon');
+Route::resource('admin/promotions', 'PromotionController');
+Route::resource('admin/coupons', 'CouponController');
+Route::resource('admin/users', 'UserController');
