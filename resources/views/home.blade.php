@@ -23,7 +23,9 @@
             </div>
             <div class="col-xs-9">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+                    <div class="panel-heading">
+                        <a href="/coupon/coupon">Cupon </a>
+                    </div>
                     <div class="panel-body">
                         You are logged in {{Auth::user()->name}}!
                     </div>

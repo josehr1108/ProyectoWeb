@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('auth/facebook', 'FacebookController@redirectToProvider');
 Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
+
+Route::get('/coupon/coupon', 'CouponController@vistaCupon');
