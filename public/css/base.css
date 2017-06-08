@@ -1,5 +1,6 @@
 .navbar {
     background-color: #5e584a;
+    margin: 0;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li:hover {
@@ -8,4 +9,25 @@
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
     color: #efefed;
+}
+
+.sidebar-nav{
+    width: 100%;
+    background-color: #ccc094;
+    text-align: center;
+    height: 100%;
+}
+
+.nav-header{
+    background-color: #5e584a;
+    height: 30px;
+    color: #dad9d7;;
+}
+
+.nav-header span{
+    margin-top: 10px;
+}
+
+#top5Aside{
+    padding: 0;
 }

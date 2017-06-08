@@ -11,9 +11,11 @@
     <title>{{ config('app.name', 'PrograWeb') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     {!!Html::style('css/app.css')!!}
     {!!Html::style('css/base.css')!!}
     {!!Html::style('css/font-awesome.min.css')!!}
+<!-- Latest compiled and minified CSS -->
 </head>
 <body>
     <div id="app">
@@ -72,11 +74,11 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
     </div>
+    @yield('content')
 
     <!-- Scripts -->
     {!!Html::script('js/app.js')!!}
+    <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 </body>
 </html>
