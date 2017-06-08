@@ -26,6 +26,7 @@ class CreateCouponsTable extends Migration
             $table->string('address');
             $table->string('schedule');
             $table->string('use_interval');
+            $table->string('status');
             $table->timestamps();
         });
     }

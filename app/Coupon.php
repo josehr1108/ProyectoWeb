@@ -18,5 +18,6 @@ class Coupon extends Model
         'address',
         'schedule',
         'use_interval',
+        'status',
     ];
 }
