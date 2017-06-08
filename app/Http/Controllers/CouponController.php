@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Coupon;
 
 class CouponController extends Controller
 {
@@ -13,7 +14,7 @@ class CouponController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.coupons.index');
     }
 
     /**
@@ -80,9 +81,5 @@ class CouponController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function vistaCupon(){
-        return view('coupon.coupon');
     }
 }

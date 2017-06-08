@@ -39,6 +39,8 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+                height: 25px;
+                background-color: rgba(170, 171, 175, 0.57);
             }
 
             .content {
@@ -50,7 +52,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #191a1b;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
