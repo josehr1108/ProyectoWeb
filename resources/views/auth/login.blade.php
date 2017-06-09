@@ -54,12 +54,13 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                <a class="btn btn-info facebookBtn" href="auth/facebook">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    Facebook Login
                                 </a>
 
-                                <a class="btn btn-link" href="auth/facebook">
-                                    Facebook Login
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Forgot Your Password?
                                 </a>
                             </div>
                         </div>

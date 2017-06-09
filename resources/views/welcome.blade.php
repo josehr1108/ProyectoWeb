@@ -5,18 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>WikiCupon</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Mogra|Patrick+Hand+SC|Satisfy" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
+                /*font-family: 'Raleway', sans-serif;
+                font-weight: 100;*/
                 height: 100vh;
                 margin: 0;
             }
@@ -40,7 +40,6 @@
                 right: 10px;
                 top: 18px;
                 height: 25px;
-                background-color: rgba(170, 171, 175, 0.57);
             }
 
             .content {
@@ -52,10 +51,10 @@
             }
 
             .links > a {
-                color: #191a1b;
+                color: #f5f8ff;
                 padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
+                font-family: 'Patrick Hand SC', cursive;
+                font-size: large;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -70,15 +69,23 @@
 
             #textBlock{
                 padding-top: 8%;
-                color: #16080f;
+                color: #124857;
+                font-family: 'Mogra', cursive;
+                font-size: x-large;
+                text-shadow: 2px 2px 4px #000000;
             }
 
             #paragraph{
-                color: #110c0d;
-                font-size: large;
-                font-family: Avenir, Helvetica, sans-serif;
-                font-weight: bold;
-                padding-top: 8%;
+                color: #f5f8ff;
+                font-family: 'Patrick Hand SC', cursive;
+                font-size: x-large;
+                font-weight: bolder;
+                padding-top: 5%;
+            }
+
+            #paragraphContainer{
+                margin: 0 auto;
+                width: 30%;
             }
 
             .m-b-md {
@@ -102,8 +109,10 @@
             <div class="content" id="welcomeBg">
                 <div id="textBlock">
                     <h1>Bienvenido a WikiCupon!</h1>
-                    <p id="paragraph">Encuentra tus cupones favoritos en el sitio del mayor catalogo de cupones de Costa Rica!</p>
-                </div>
+                    <img src="{{asset('images/wLogo.png')}}">
+                    <div id="paragraphContainer">
+                        <p id="paragraph">Encuentra tus cupones favoritos en el sitio del mayor catalogo de cupones de Costa Rica!</p>
+                    </div>
             </div>
         </div>
     </body>
