@@ -25,3 +25,5 @@ Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback'
 Route::resource('admin/promotions', 'PromotionController');
 Route::resource('admin/coupons', 'CouponController');
 Route::resource('admin/users', 'UserController');
+
+Route::get('/coupon/coupon','CouponController@couponView');

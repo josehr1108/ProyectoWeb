@@ -127,7 +127,7 @@ class CouponController extends Controller
     }
 
 
-    public function vistaCupon(){
-        return view('coupon.coupon');
+    public function couponView(){
+        return view('admin.coupons.newCoupon');
     }
 }
