@@ -17,6 +17,7 @@ class CouponController extends Controller
         $coupons = Coupon::all()->toArray();
         return response()->json($coupons);
     }
+
     /**
      * Show the form for creating a new resource.
      *
