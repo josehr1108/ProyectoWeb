@@ -115,3 +115,13 @@
 .facebookBtn:hover{
     background-color: #2a3461;
 }
+
+.infoCoupon{
+    color: #124857;
+    font-family: 'Mogra', cursive;
+    font-size:large;
+}
+
+.centrarText{
+    text-align: center;
+}
