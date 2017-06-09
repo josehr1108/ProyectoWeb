@@ -8,14 +8,13 @@
                     <div id="brandLogo"></div>
                     <ul class="nav nav-list">
                         <li class="nav-header"><span>Top 5 cupones</span></li>
-                        <li class="active"><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li class="active"><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li class="active"><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
                         <li class="nav-header"><span>Top 5 promociones</span></li>
-
-                        <li class="active"><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li class="active"><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li class="active"><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
                     </ul>
                 </div>
             </aside>
