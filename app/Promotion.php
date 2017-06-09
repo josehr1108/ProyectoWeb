@@ -17,5 +17,6 @@ class Promotion extends Model
         'saving',
         'discount',
         'address',
+        'status',
     ];
 }
