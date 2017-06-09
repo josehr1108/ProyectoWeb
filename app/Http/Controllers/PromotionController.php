@@ -20,7 +20,7 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        $promotions = Coupon::all()->toArray();
+        $promotions = Promotion::all()->toArray();
         return response()->json($promotions);
     }
     /**
