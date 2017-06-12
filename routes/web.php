@@ -26,4 +26,4 @@ Route::resource('admin/promotions', 'PromotionController');
 Route::resource('admin/coupons', 'CouponController');
 Route::resource('admin/users', 'UserController');
 
-Route::get('/coupon/coupon','CouponController@couponView');
+Route::get('/coupon/{id}','CouponController@couponView');

@@ -46,11 +46,11 @@
                             @foreach($cupones as $cupon)
                             <li>
                                 <div class="couponContainer">
-                                    <div class="couponImg" style="background: #1b6d85 url({{$cupon->image}}) no-repeat center">
+                                    <a href="/coupon/{{$cupon->id}}"><div class="couponImg" style="background: #1b6d85 url({{$cupon->image}}) no-repeat center">
                                         <!--img class="img-responsive" src="{{$cupon->image}}"-->
                                         <div class="priceTip">¢{{$cupon->current_price}}</div>
                                         <div class="discountTip">{{$cupon->discount}}% descuento</div>
-                                    </div>
+                                    </div></a>
                                     <div class="couponInfo">
                                         <h3 class="name">{{$cupon->information}}</h3>
                                         <span class="city"><b>Ciudad: </b>{{$cupon->city}}</span>
