@@ -128,6 +128,7 @@ class CouponController extends Controller
 
 
     public function couponView(){
-        return view('admin.coupons.couponView');
+        $coupons = Coupon::all()->toJson();
+        return view('admin.coupons.couponView',['$coupons' => json_decode($coupons)]);
     }
 }
