@@ -46,7 +46,7 @@
                                     <div class="panel panel-primary bajito">
                                         <div class="panel-heading infoCoupon"><h4>Daryn Soto</h4></div>
                                         <div class="panel-body">
-                                            <h5>Vamos por ese puro pero yaa.</h5>
+                                            <h5>Vaamos por ese puro pero ya.</h5>
                                         </div>
                                     </div>
                                 </div>

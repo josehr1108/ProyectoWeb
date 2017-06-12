@@ -128,6 +128,6 @@ class CouponController extends Controller
 
 
     public function couponView(){
-        return view('admin.coupons.newCoupon');
+        return view('admin.coupons.couponView');
     }
 }

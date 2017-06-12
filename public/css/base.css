@@ -28,7 +28,6 @@
 
 #top5Aside{
     padding: 0;
-    height: 100%;
 }
 
 #top5Aside li{
@@ -208,3 +207,14 @@
     padding-top: 8%;
 }
 
+
+
+.infoCoupon{
+    color: #124857;
+    font-family: 'Mogra', cursive;
+    font-size:large;
+}
+
+.centrarText{
+    text-align: center;
+}
