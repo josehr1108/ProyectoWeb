@@ -19,9 +19,9 @@
                 </div>
             </aside>
             <div class="col-xs-9" style="padding-top: 1%">
-                <div class="panel panel-default couponsPanel">
+                <div class="panel panel-default sectionPanel">
                     <div class="panel-heading">
-                        <a href="/coupon/{id}">Cupones </a>
+                        Cupones
                     </div>
                     <div class="panel-body" id="couponList">
                         <div class="sortAndSearch">
@@ -37,7 +37,7 @@
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort" data-sort="priceTip">Precio</a></li>
                                 </ul>
                             </div>
-                            <div id="searchContainer" class="pull-left">
+                            <div class="pull-left">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <input class="search" placeholder="Busca por palabra clave"/>
                             </div>
@@ -45,13 +45,14 @@
                         <ul class="list">
                             @foreach($cupones as $cupon)
                             <li>
-                                <div class="couponContainer">
-                                    <a href="/coupon/{{$cupon->id}}"><div class="couponImg" style="background: #1b6d85 url({{$cupon->image}}) no-repeat center">
-                                        <!--img class="img-responsive" src="{{$cupon->image}}"-->
-                                        <div class="priceTip">¢{{$cupon->current_price}}</div>
-                                        <div class="discountTip">{{$cupon->discount}}% descuento</div>
-                                    </div></a>
-                                    <div class="couponInfo">
+                                <div class="elementContainer">
+                                    <a href="/coupon/{{$cupon->id}}">
+                                        <div class="imgContainer shadow" style="background: #1b6d85 url({{$cupon->image}}) no-repeat center">
+                                            <div class="priceTip">¢{{$cupon->current_price}}</div>
+                                            <div class="discountTip">{{$cupon->discount}}% descuento</div>
+                                        </div>
+                                    </a>
+                                    <div class="elementInfo">
                                         <h3 class="name">{{$cupon->information}}</h3>
                                         <span class="city"><b>Ciudad: </b>{{$cupon->city}}</span>
                                         <span class="type"><b>Tipo: </b>{{$cupon->type}}</span>
@@ -65,29 +66,72 @@
                         <div class="paginationContainer">
                             <ul class="pagination"></ul>
                         </div>
-
+                    </div>
+                </div>
+                <div class="panel panel-default sectionPanel">
+                    <div class="panel-heading">
+                        Promociones
+                    </div>
+                    <div class="panel-body" id="promotionList">
+                        <div class="sortAndSearch">
+                            <div class="dropdown pull-right">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">Ordenar por
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort" data-sort="title">Titulo</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort" data-sort="priceTip2">Precio</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort" data-sort="saving">Ahorro</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort" data-sort="discountTip2">Descuento</a></li>
+                                </ul>
+                            </div>
+                            <div class="pull-left">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <input class="search" placeholder="Busca por palabra clave"/>
+                            </div>
+                        </div>
+                        <ul class="list">
+                            @foreach($promociones as $promocion)
+                                <li>
+                                    <div class="elementContainer">
+                                        <a href="/promotion/{{$promocion->id}}">
+                                            <div class="imgContainer shadow" style="background: #1b6d85 url({{$promocion->image}}) no-repeat center">
+                                                <div class="priceTip">¢{{$promocion->current_price}}</div>
+                                                <div class="discountTip">{{$promocion->discount}}% descuento</div>
+                                            </div>
+                                        </a>
+                                        <div class="elementInfo">
+                                            <h3 class="title">{{$promocion->title}}</h3>
+                                            <span class="description"><b>Descripción: </b>{{$promocion->description}}</span>
+                                            <span class="original_price"><b>Precio Original: </b>¢{{$promocion->original_price}}</span>
+                                            <span class="saving"><b>Ahorro: </b>¢{{$promocion->saving}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <div class="paginationContainer">
+                            <ul class="pagination"></ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        var options = {
+        let couponOptions = {
             valueNames: [ 'name', 'city','type','expiration_date','discountTip','priceTip'],
             page: 3,
             pagination: true
         };
 
-        var couponList = new List('couponList', options);
+        let promotionOptions = {
+            valueNames: [ 'title','description','image','priceTip','original_price','saving','discountTip'],
+            page: 3,
+            pagination: true
+        };
 
-        /*couponList.filter(function(item) {
-            if (item.values().name == "Divierte con este panda") {
-                return true;
-            } else {
-                return false;
-            }
-        });
+        let couponList = new List('couponList', couponOptions);
+        let promotionList = new List('promotionList',promotionOptions);
 
-        couponList.filter();*/
     </script>
 @endsection

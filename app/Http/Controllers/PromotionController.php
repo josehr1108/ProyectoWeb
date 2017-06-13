@@ -130,6 +130,4 @@ class PromotionController extends Controller
             return response()->json(['mensaje' => 'Lo sentimos, la promocion no ha podido ser eliminada.'],404);
         }
     }
-
-
 }
