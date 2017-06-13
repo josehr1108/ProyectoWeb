@@ -21,7 +21,7 @@
             <div class="col-xs-9" style="padding-top: 1%">
                 <div class="panel panel-default couponsPanel">
                     <div class="panel-heading">
-                        <a href="/coupon/coupon">Cupones </a>
+                        <a href="/coupon/{id}">Cupones </a>
                     </div>
                     <div class="panel-body" id="couponList">
                         <div class="sortAndSearch">
