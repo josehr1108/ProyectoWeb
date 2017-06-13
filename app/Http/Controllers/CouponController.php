@@ -14,7 +14,7 @@ class CouponController extends Controller
      */
     public function index()
     {
-        $coupons = Coupon::all()->toArray();
+        $coupons = Coupon::All()->toArray();
         return response()->json($coupons);
     }
 
@@ -38,11 +38,10 @@ class CouponController extends Controller
     {
         try{
             Coupon::create($request->all());
-            return response()->json(['mensajeRespuesta' => "El cupon fue generado exitosamente."],200);
-
+            return response()->json(['mensajeRespuesta' => "El cupon fue generado exitosamente."], 200);
         }catch (\Exception $exception){
             $exceptionMsg = "Error: {$exception->getMessage()}";
-            return response()->json(['mensajeRespuesta' => $exceptionMsg],500);
+            return response()->json(['mensajeRespuesta' => $exceptionMsg], 500);
         }
     }
 
@@ -56,9 +55,9 @@ class CouponController extends Controller
     {
         $coupon = Coupon::find($id);
         if($coupon){
-            return response()->json($coupon,200);
+            return response()->json($coupon, 200);
         }else{
-            return response()->json(['mensajeError' => 'Lo sentimos, el cupon que desea encontrar no existe'],404);
+            return response()->json(['mensajeError' => 'Lo sentimos, el cupon que desea encontrar no existe'], 404);
         }
     }
 
@@ -99,13 +98,13 @@ class CouponController extends Controller
 
                 $coupon->save();
 
-                return response()->json(['mensajeExistoso' => 'El cupon fue actualizado adecuadamente por el sistema.'],200);
+                return response()->json(['mensajeExistoso' => 'El cupon fue actualizado adecuadamente por el sistema.'], 200);
             }catch (Exception $exception){
                 $mensaje = $exception->getMessage();
-                return response()->json(['mensajeExistoso' => $mensaje],500);
+                return response()->json(['mensajeExistoso' => $mensaje], 500);
             }
         }else{
-            return response()->json(['mensajeError' => 'El cupon que desea actualizar no se ha podido crear.'],404);
+            return response()->json(['mensajeError' => 'El cupon que desea actualizar no se ha podido crear.'], 404);
         }
     }
 
@@ -120,9 +119,9 @@ class CouponController extends Controller
         $coupon = Coupon::find($id);
         if($coupon){
             $coupon->delete();
-            return response()->json(['mensaje' => 'El cupon ha sido eliminado exitosamente.'],404);
+            return response()->json(['mensaje' => 'El cupon ha sido eliminado exitosamente.'], 404);
         }else{
-            return response()->json(['mensaje' => 'Lo sentimos, el cupon no ha podido ser eliminado.'],404);
+            return response()->json(['mensaje' => 'Lo sentimos, el cupon no ha podido ser eliminado.'], 404);
         }
     }
 

@@ -20,8 +20,14 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        $promotions = Promotion::all()->toArray();
+        $promotions = Promotion::All()->toArray();
         return response()->json($promotions);
+    }
+
+    public function adminIndex()
+    {
+        $promotions = Promotion::All();
+        return view('admin.promotions.index', compact('promotions'));
     }
     /**
      * Show the form for creating a new resource.
