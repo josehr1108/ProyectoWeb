@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Coupon;
+use App\Promotion;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $coupons = Coupon::all()->toJson();
-        return view('home',['cupones' => json_decode($coupons)]);
+        $promotions = Promotion::all()->toJson();
+        return view('home',['cupones' => json_decode($coupons),'promociones' => json_decode($promotions)]);
     }
 }
