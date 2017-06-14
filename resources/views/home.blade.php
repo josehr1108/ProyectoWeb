@@ -8,13 +8,31 @@
                     <div id="brandLogo"></div>
                     <ul class="nav nav-list">
                         <li class="nav-header"><span>Top 5 cupones</span></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        @foreach($top5Coupons as $topCoupon)
+                        <li>
+                            <a href="/coupon/{{$topCoupon->id}}">
+                                <div class="row">
+                                    <div class="top5ImgContainer" style="background: #1b6d85 url({{$topCoupon->image}}) no-repeat center"></div>
+                                    <div class="vertical-center"><i class="glyphicon glyphicon-star"></i>{{$topCoupon->information}}</div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <hr>
+                        @endforeach
                         <li class="nav-header"><span>Top 5 promociones</span></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        @foreach($top5Promotions as $topPromotion)
+                            <li>
+                                <a href="/promotion/{{$topPromotion->id}}">
+                                    <div class="row">
+                                        <div class="top5ImgContainer" style="background: #1b6d85 url({{$topPromotion->image}}) no-repeat center"></div>
+                                        <div class="vertical-center"><i class="glyphicon glyphicon-star"></i>{{$topPromotion->title}}</div>
+                                    </div>
+
+                                </a>
+                            </li>
+                            <hr>
+                        @endforeach
                     </ul>
                 </div>
             </aside>
@@ -74,8 +92,8 @@
                     </div>
                     <div class="panel-body" id="promotionList">
                         <div class="sortAndSearch">
-                            <div class="dropdown2 pull-right">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown2">Ordenar por
+                            <div class="dropdown pull-right">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">Ordenar por
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort" data-sort="title">Titulo</a></li>
@@ -118,8 +136,14 @@
         </div>
         <footer class="row">
             <div class="container-fluid" id="footerContainer">
-                <span>WikiCupon Company &copy; todos los derechos reservados</span>
-                <span>Jodanse</span>
+                <span>WikiCupon Company &copy;</span>
+                <span>Derechos reservados</span>
+                <span id="socialText">Siguenos en nuestras redes sociales!</span>
+                <span>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                </span>
             </div>
         </footer>
     </div>
