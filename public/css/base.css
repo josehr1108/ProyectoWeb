@@ -184,6 +184,10 @@
     color: #222;
 }
 
+.button-container {
+    padding: 5px;
+}
+
 .text {
     font-size: 17px;
 }

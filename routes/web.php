@@ -22,8 +22,10 @@ Route::get('home', 'HomeController@index')->name('home');
 Route::get('auth/facebook', 'FacebookController@redirectToProvider');
 Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
 
-Route::resource('admin/promotions', 'PromotionController');
-Route::resource('admin/coupons', 'CouponController');
-Route::resource('admin/users', 'UserController');
+Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'as'=>'admin.'], function(){
+    Route::resource('promotions', 'PromotionController');
+    Route::resource('coupons', 'CouponController');
+    Route::resource('users', 'UserController');
+});
 
 Route::get('/coupon/{id}','CouponController@couponView');

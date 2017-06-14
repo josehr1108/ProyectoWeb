@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="centered-div">
-        <form action="{{ url('admin/promotions/create') }}">
+        <form action="{{ url('admin/promotions/create') }}" class="button-container">
             <input type="submit" value="Create a new user" class="button"/>
         </form>
     </div>
