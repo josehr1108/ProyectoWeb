@@ -125,7 +125,7 @@
         };
 
         let promotionOptions = {
-            valueNames: [ 'title','description','image','priceTip','original_price','saving','discountTip'],
+            valueNames: [ 'title','description','priceTip','original_price','saving','discountTip'],
             page: 3,
             pagination: true
         };

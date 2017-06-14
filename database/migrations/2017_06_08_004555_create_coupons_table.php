@@ -27,6 +27,7 @@ class CreateCouponsTable extends Migration
             $table->string('schedule');
             $table->string('use_interval');
             $table->string('status');
+            $table->integer('visitCount')->default(0);
             $table->timestamps();
         });
     }
