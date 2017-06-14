@@ -1,9 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Session::has('state'))
+        <div class="alert {{ Session::get('alert_class') }} alert-dismissible show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡{{ Session::get('state') }}!</strong> {{ Session::get('message') }}
+        </div>
+    @endif
     <div class="centered-div">
         <form action="{{ url('admin/promotions/create') }}" class="button-container">
-            <input type="submit" value="Create a new user" class="button"/>
+            <input type="submit" value="Crear nueva promoción" class="btn button"/>
         </form>
     </div>
     <table class="table">
@@ -24,20 +32,24 @@
         @foreach($promotions as $promotion)
         <tbody>
             <td>{{$promotion->title}}</td>
-            <td>{{$promotion->description}}</td>
-            <td>{{$promotion->secondary_description}}</td>
-            <td>{{$promotion->image}}</td>
+            <td><textarea class="textarea-table" rows="5" cols="30" readonly>{{$promotion->description}}</textarea></td>
+            <td><textarea class="textarea-table" rows="5" cols="30" readonly>{{$promotion->secondary_description}}</textarea></td>
+            <td><textarea class="textarea-table" rows="3" cols="25" readonly>{{$promotion->image}}</textarea></td>
             <td>{{$promotion->web_page}}</td>
-            <td>{{$promotion->original_price}}</td>
-            <td>{{$promotion->current_price}}</td>
-            <td>{{$promotion->saving}}%</td>
-            <td>{{$promotion->discount}}</td>
-            <td>{{$promotion->address}}</td>
-            <th>
-                {!!link_to_route('admin.promotions.edit', $title='Editar', $parameters=$promotion->id, $attributes=['class'=>'button'])!!}
-                {!!link_to_route('admin.promotions.destroy', $title='Eliminar', $parameters=$promotion->id, $attributes=['class'=>'button'])!!}
-                {!!link_to_route('admin.promotions.updateState', $title='Estado', $parameters=$promotion->id, $attributes=['class'=>'button'])!!}
-            </th>
+            <td>{{number_format($promotion->original_price, 0, '', ' ')}}¢</td>
+            <td>{{number_format($promotion->current_price, 0, '', ' ')}}¢</td>
+            <td>{{number_format($promotion->saving, 0, '', ' ')}}¢</td>
+            <td>{{$promotion->discount}}%</td>
+            <td><textarea class="textarea-table" rows="3" cols="25" readonly>{{$promotion->address}}</textarea></td>
+            <td>
+                {!!link_to('admin/promotions/editView?id='.$promotion->id, $title='Editar', $parameters=['class'=>'btn button'], $secure=null)!!}
+                {!!link_to_route('admin.promotions.destroy', $title='Eliminar', $parameters=$promotion->id, $attributes=['class'=>'btn button'])!!}
+                @if($promotion->status == 'Activo')
+                    {!!link_to_route('admin.promotions.edit', $title='Desactivar', $parameters=$promotion->id, $attributes=['class'=>'btn button'])!!}
+                @else
+                    {!!link_to_route('admin.promotions.edit', $title='Activar', $parameters=$promotion->id, $attributes=['class'=>'btn button'])!!}
+                @endif
+            </td>
         </tbody>
         @endforeach
         </tbody>
