@@ -19,4 +19,8 @@ class Promotion extends Model
         'address',
         'status',
     ];
+
+    public function comments(){
+        return $this->hasMany('PromotionComment');
+    }
 }

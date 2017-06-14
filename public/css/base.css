@@ -28,6 +28,7 @@
 
 #top5Aside{
     padding: 0;
+    max-width: 250px;
 }
 
 #top5Aside li{
@@ -149,8 +150,49 @@
     padding: 5px 5px;
 }
 
+footer{
+    background-color: #124857;
+}
+
+#footerContainer{
+    padding: 2%;
+    height: 150px;
+    text-align: center;
+    color: white;
+}
+
+#footerContainer span{
+    display: block;
+}
+
+#socialText{
+    padding-top: 2%;
+}
+
+footer i{
+    margin: 0 5px;
+}
+
+.top5ImgContainer{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+hr{
+   margin: 0;
+    border: 1px solid rgba(33, 49, 53, 0.9) ;
+   /* border-color: rgba(33, 49, 53, 0.9);
+    border-width: 2px;*/
+}
+
 /**************************************************   General         **************************************************/
 /***********************************************************************************************************************/
+.vertical-center{
+    padding: 5% 0;
+    overflow: hidden;
+}
 
 .bajito{
     padding-bottom: 2%;
@@ -184,12 +226,23 @@
     color: #222;
 }
 
+.button-container {
+    padding: 5px;
+}
+
 .text {
     font-size: 17px;
 }
 
 .textarea {
+    resize: vertical;
+}
+
+.textarea-table {
+    border-style: none;
+    background-color: transparent;
     resize: none;
+    
 }
 
 .shadow {
@@ -199,6 +252,10 @@
 .centered-div {
     width: 95%;
     margin: auto;
+}
+
+.space {
+    padding-top: 20px;
 }
 
 .facebookBtn{
@@ -213,8 +270,6 @@
     padding-top: 8%;
 }
 
-
-
 .infoCoupon{
     color: #124857;
     font-family: 'Mogra', cursive;
@@ -223,4 +278,24 @@
 
 .centrarText{
     text-align: center;
+}
+
+.priceTip2{
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    color: white;
+    text-shadow: 2px 2px 3px #000000;
+    font-size: large;
+    /*background-color: rgba(14,14,14,.4);*/
+}
+
+.discountTip2{
+    position: absolute;
+    top: 0;
+    left: 5px;
+    color: #aa9300;
+    text-shadow: 2px 2px 3px #000000;
+    font-size: medium;
+    font-weight: bold;
 }

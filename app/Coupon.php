@@ -20,4 +20,8 @@ class Coupon extends Model
         'use_interval',
         'status',
     ];
+
+    public function comments(){
+        return $this->hasMany('CouponComment');
+    }
 }

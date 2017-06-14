@@ -61,13 +61,13 @@
 
                                     <ul class="dropdown-menu" role="menu">
                                         <li>
-                                            <a href="{{ route('promotions.index') }}">
+                                            <a href="{{ route('admin.promotions.index') }}">
                                                 Administrar promociones
                                             </a>
-                                            <a href="{{ route('coupons.index') }}">
+                                            <a href="{{ route('admin.coupons.index') }}">
                                                 Administrar cupones
                                             </a>
-                                            <a href="{{ route('users.index') }}">
+                                            <a href="{{ route('admin.users.index') }}">
                                                 Administrar usuarios
                                             </a>
                                         </li>

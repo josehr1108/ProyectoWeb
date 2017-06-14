@@ -8,13 +8,31 @@
                     <div id="brandLogo"></div>
                     <ul class="nav nav-list">
                         <li class="nav-header"><span>Top 5 cupones</span></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        @foreach($top5Coupons as $topCoupon)
+                        <li>
+                            <a href="/coupon/{{$topCoupon->id}}">
+                                <div class="row">
+                                    <div class="top5ImgContainer" style="background: #1b6d85 url({{$topCoupon->image}}) no-repeat center"></div>
+                                    <div class="vertical-center"><i class="glyphicon glyphicon-star"></i>{{$topCoupon->information}}</div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <hr>
+                        @endforeach
                         <li class="nav-header"><span>Top 5 promociones</span></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-star"></i> Sumergete en un mundo de pura crap y basura</a></li>
+                        @foreach($top5Promotions as $topPromotion)
+                            <li>
+                                <a href="/promotion/{{$topPromotion->id}}">
+                                    <div class="row">
+                                        <div class="top5ImgContainer" style="background: #1b6d85 url({{$topPromotion->image}}) no-repeat center"></div>
+                                        <div class="vertical-center"><i class="glyphicon glyphicon-star"></i>{{$topPromotion->title}}</div>
+                                    </div>
+
+                                </a>
+                            </li>
+                            <hr>
+                        @endforeach
                     </ul>
                 </div>
             </aside>
@@ -95,8 +113,8 @@
                                     <div class="elementContainer">
                                         <a href="/promotion/{{$promocion->id}}">
                                             <div class="imgContainer shadow" style="background: #1b6d85 url({{$promocion->image}}) no-repeat center">
-                                                <div class="priceTip">¢{{$promocion->current_price}}</div>
-                                                <div class="discountTip">{{$promocion->discount}}% descuento</div>
+                                                <div class="priceTip2">¢{{$promocion->current_price}}</div>
+                                                <div class="discountTip2">{{$promocion->discount}}% descuento</div>
                                             </div>
                                         </a>
                                         <div class="elementInfo">
@@ -116,22 +134,18 @@
                 </div>
             </div>
         </div>
+        <footer class="row">
+            <div class="container-fluid" id="footerContainer">
+                <span>WikiCupon Company &copy;</span>
+                <span>Derechos reservados</span>
+                <span id="socialText">Siguenos en nuestras redes sociales!</span>
+                <span>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                </span>
+            </div>
+        </footer>
     </div>
-    <script>
-        let couponOptions = {
-            valueNames: [ 'name', 'city','type','expiration_date','discountTip','priceTip'],
-            page: 3,
-            pagination: true
-        };
-
-        let promotionOptions = {
-            valueNames: [ 'title','description','image','priceTip','original_price','saving','discountTip'],
-            page: 3,
-            pagination: true
-        };
-
-        let couponList = new List('couponList', couponOptions);
-        let promotionList = new List('promotionList',promotionOptions);
-
-    </script>
+    <script src="{{asset('js/listInstances.js')}}"></script>
 @endsection
