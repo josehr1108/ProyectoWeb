@@ -149,6 +149,21 @@
     padding: 5px 5px;
 }
 
+footer{
+    background-color: #0d3625;
+}
+
+#footerContainer{
+    padding: 2%;
+    height: 150px;
+    text-align: center;
+    color: white;
+}
+
+#footerContainer span{
+    display: block;
+}
+
 /**************************************************   General         **************************************************/
 /***********************************************************************************************************************/
 
@@ -227,4 +242,24 @@
 
 .centrarText{
     text-align: center;
+}
+
+.priceTip2{
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    color: white;
+    text-shadow: 2px 2px 3px #000000;
+    font-size: large;
+    /*background-color: rgba(14,14,14,.4);*/
+}
+
+.discountTip2{
+    position: absolute;
+    top: 0;
+    left: 5px;
+    color: #aa9300;
+    text-shadow: 2px 2px 3px #000000;
+    font-size: medium;
+    font-weight: bold;
 }

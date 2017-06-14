@@ -74,8 +74,8 @@
                     </div>
                     <div class="panel-body" id="promotionList">
                         <div class="sortAndSearch">
-                            <div class="dropdown pull-right">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">Ordenar por
+                            <div class="dropdown2 pull-right">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown2">Ordenar por
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort" data-sort="title">Titulo</a></li>
@@ -95,8 +95,8 @@
                                     <div class="elementContainer">
                                         <a href="/promotion/{{$promocion->id}}">
                                             <div class="imgContainer shadow" style="background: #1b6d85 url({{$promocion->image}}) no-repeat center">
-                                                <div class="priceTip">¢{{$promocion->current_price}}</div>
-                                                <div class="discountTip">{{$promocion->discount}}% descuento</div>
+                                                <div class="priceTip2">¢{{$promocion->current_price}}</div>
+                                                <div class="discountTip2">{{$promocion->discount}}% descuento</div>
                                             </div>
                                         </a>
                                         <div class="elementInfo">
@@ -116,22 +116,12 @@
                 </div>
             </div>
         </div>
+        <footer class="row">
+            <div class="container-fluid" id="footerContainer">
+                <span>WikiCupon Company &copy; todos los derechos reservados</span>
+                <span>Jodanse</span>
+            </div>
+        </footer>
     </div>
-    <script>
-        let couponOptions = {
-            valueNames: [ 'name', 'city','type','expiration_date','discountTip','priceTip'],
-            page: 3,
-            pagination: true
-        };
-
-        let promotionOptions = {
-            valueNames: [ 'title','description','priceTip','original_price','saving','discountTip'],
-            page: 3,
-            pagination: true
-        };
-
-        let couponList = new List('couponList', couponOptions);
-        let promotionList = new List('promotionList',promotionOptions);
-
-    </script>
+    <script src="{{asset('js/listInstances.js')}}"></script>
 @endsection
