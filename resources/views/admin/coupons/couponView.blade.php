@@ -42,13 +42,16 @@
                         <div class="panel-heading infoCoupon">Comentarios</div>
                         <div class="panel-body">
                             <div class="col-lg-12">
-                                <div id="comments">
+                                <div id="comentarios">
+                                    @foreach ($comments as $comment)
                                     <div class="panel panel-primary bajito">
-                                        <div class="panel-heading infoCoupon"><h4>Daryn Soto</h4></div>
+                                        <div class="panel-heading infoCoupon"><h4>{{$comment->user_name}}</h4></div>
                                         <div class="panel-body">
-                                            <h5>Vaamos por ese puro pero ya.</h5>
+                                            <h5>{{$comment->message}}</h5>
                                         </div>
                                     </div>
+                                    @endforeach
+
                                 </div>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Comentar</button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -62,17 +65,18 @@
                                                 <form>
                                                     <div class="form-group">
                                                         <label for="message-text" class="control-label">Comentario:</label>
-                                                        <textarea class="form-control" name="message-text"></textarea>
+                                                        <textarea class="form-control" id="message-text"></textarea>
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button onclick="newComent(name)" type="button" class="btn btn-primary">Comentar</button>
+                                                <button onclick="newComent()" type="button" class="btn btn-primary">Comentar</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <button onclick="correo({{$coupon->id}})" id="correo" class="btn btn-primary"> Enviar Información por correo</button>
                             </div>
                         </div>
                     </div>
@@ -81,19 +85,28 @@
         </div>
     </div>
     <script>
-        function newComent(name) {
+        function newComent() {
             var txt1 = $("<div></div>").addClass('panel panel-primary bajito');
             var txt2 = $("<div></div>").addClass( 'panel-heading infoCoupon');
-            var txt5 = "<h4>Daryn Soto</h4>";
+            var txt5 = "<h4>{{Auth::user()->name}}</h4>";
             $(txt2).append(txt5);
             $(txt1).append(txt2);
 
             var txt3 = $("<div></div>").addClass('panel-body');
-            var txt4 = "<h5>name</h5>";
+            var textArea = $('#message-text').val();
+            var txt4 = "<h5>"+ textArea + "</h5>";
             $(txt3).append(txt4);
             $(txt1).append(txt3);
 
-            $("#comments").append(txt1);
+            $("#comentarios").append(txt1);
+        }
+
+        function correo(id){
+            var url = '/basicemail/' + id;
+            console.log("Url: "+url);
+            $.get(url,function (res) {
+                console.log("res");
+            });
         }
     </script>
 @endsection

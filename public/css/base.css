@@ -244,7 +244,14 @@ hr{
 }
 
 .textarea {
+    resize: vertical;
+}
+
+.textarea-table {
+    border-style: none;
+    background-color: transparent;
     resize: none;
+    
 }
 
 .shadow {
@@ -254,6 +261,10 @@ hr{
 .centered-div {
     width: 95%;
     margin: auto;
+}
+
+.space {
+    padding-top: 20px;
 }
 
 .facebookBtn{
@@ -267,8 +278,6 @@ hr{
 .topPad{
     padding-top: 8%;
 }
-
-
 
 .infoCoupon{
     color: #124857;

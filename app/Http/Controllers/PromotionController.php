@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Equip
- * Date: 8/6/2017
- * Time: 2:25 PM
- */
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use App\Promotion;
 
 class PromotionController extends Controller
@@ -24,39 +18,6 @@ class PromotionController extends Controller
         return response()->json($promotions);
     }
 
-    public function adminIndex()
-    {
-        $promotions = Promotion::All();
-        return view('admin.promotions.index', compact('promotions'));
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        try{
-            Promotion::create($request->all());
-            return response()->json(['mensajeRespuesta' => "La promocion fue generada exitosamente."],200);
-
-        }catch (\Exception $exception){
-            $exceptionMsg = "Error: {$exception->getMessage()}";
-            return response()->json(['mensajeRespuesta' => $exceptionMsg],500);
-        }
-    }
-
     /**
      * Display the specified resource.
      *
@@ -67,21 +28,10 @@ class PromotionController extends Controller
     {
         $promotion = Promotion::find($id);
         if($promotion){
-            return response()->json($promotion,200);
+            return response()->json($promotion, 200);
         }else{
-            return response()->json(['mensajeError' => 'Lo sentimos, la promocion que desea encontrar no existe'],404);
+            return response()->json(['mensajeError' => 'Lo sentimos, la promocion que desea encontrar no existe'], 404);
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -135,5 +85,10 @@ class PromotionController extends Controller
         }else{
             return response()->json(['mensaje' => 'Lo sentimos, la promocion no ha podido ser eliminada.'],404);
         }
+    }
+
+    public function promotionView($id){
+        $promocion = Promotion::find($id)->toJson();
+        return view('admin.promotions.promotionView',['promocion' => json_decode($promocion)]);
     }
 }

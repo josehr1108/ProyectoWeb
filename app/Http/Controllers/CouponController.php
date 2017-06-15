@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Coupon;
+use App\CouponComment;
 use Illuminate\Http\Request;
 
 class CouponController extends Controller
@@ -126,10 +127,11 @@ class CouponController extends Controller
     }
 
     public function couponView($id){
+        $comments = CouponComment::where('couponId',$id)->get()->toJson();
         $couponObj = Coupon::find($id);
         $coupon = $couponObj->toJson();
         $couponObj->visitCount = $couponObj->visitCount + 1;
         $couponObj->save();
-        return view('admin.coupons.couponView',['coupon' => json_decode($coupon)]);
+        return view('admin.coupons.couponView',['coupon' => json_decode($coupon),'comments' => json_decode($comments)]);
     }
 }
