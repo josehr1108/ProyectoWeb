@@ -38,8 +38,8 @@
             </div>
         </div>
     </div>
-    <div id="map">
-
+    <div class="container">
+        <div id="map"></div>
     </div>
     <script>
         function initMap() {
