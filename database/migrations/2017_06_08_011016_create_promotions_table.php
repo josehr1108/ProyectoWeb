@@ -15,11 +15,11 @@ class CreatePromotionsTable extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title',300);
+            $table->string('title',500);
             $table->string('description',600);
             $table->string('secondary_description',600);
             $table->string('image',600);
-            $table->string('web_page',200);
+            $table->string('web_page',500);
             $table->integer('original_price');
             $table->integer('current_price');
             $table->integer('saving');
