@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Hola</title>
-    </head>
-    <body>
-        <h1>Daryn}Soto</h1>
-    </body>
-</html>
+Información: {{$coupon->information}}
+Precio Actual: ${{$coupon->current_price}}
+Precio Original ${{$coupon->original_price}}
+Ahorre: {{$coupon->discount}}%
+Perodio: {{$coupon->use_interval}}
+Luhar: {{$coupon->city}}
+Horario: {{$coupon->schedule}}
+Cómo llegar: {{$coupon->address}}
+Finaliza: {{$coupon->expiration_date}}

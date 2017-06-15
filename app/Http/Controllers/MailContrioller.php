@@ -13,12 +13,13 @@ class MailContrioller extends Controller
     //
     public function basic_email($id){
         $coupon = Coupon::find($id)->toJson();
-        $comments = CouponComment::where('couponId',$id)->get()->toJson();
         $user = Auth::user();
         $userName = $user->name;
         $userEmail = $user->email;
-        Mail::send(['text'=>'admin.coupons.couponView'], ['coupon' => json_decode($coupon),'comments' => json_decode($comments)], function ($message) use ($userName, $userEmail) {
+        $couponImage = $coupon->image;
+        Mail::send(['text'=>'mail'], ['coupon' => json_decode($coupon)], function ($message) use ($couponImage, $userName, $userEmail) {
             $message->to($userEmail,$userName)->subject('Información del Cupon');
+            $message->attach($couponImage);
             $message->from('wikicoupon2014.15@gmail.com','wiki Coupon');
         });
     }
