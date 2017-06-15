@@ -12,7 +12,7 @@ class MailContrioller extends Controller
 {
     //
     public function basic_email($id){
-        $coupon = Coupon::find($id);
+        $coupon = Coupon::find($id)->toArray();
         $user = Auth::user();
         dd($coupon);
         $userName = $user->name;
