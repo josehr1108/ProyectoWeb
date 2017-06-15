@@ -88,13 +88,10 @@
         function newComent(user, couponId) {
             var userName = user.name;
             var mensaje = $('#message-text').val();
-            var comment = {'user_name':userName, 'message':mensaje};
-
-            var url = '/commentCoupon/' + couponId;
+            var url = '/commentCoupon/' + couponId +'/'+ userName+'/'+mensaje;
             $.ajax({
                 type: "POST",
                 url: url,
-                data: comment,
                 success: function (res) {
                     console.log(res.data);
                 },
