@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
+Route::get('home/contacto', 'HomeController@contact');
 
 Route::get('auth/facebook', 'FacebookController@redirectToProvider');
 Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
