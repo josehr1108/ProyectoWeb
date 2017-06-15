@@ -42,13 +42,16 @@
                         <div class="panel-heading infoCoupon">Comentarios</div>
                         <div class="panel-body">
                             <div class="col-lg-12">
-                                <div id="comments">
+                                <div id="comentarios">
+                                    @foreach ($comments as $comment)
                                     <div class="panel panel-primary bajito">
-                                        <div class="panel-heading infoCoupon"><h4>Daryn Soto</h4></div>
+                                        <div class="panel-heading infoCoupon"><h4>{{$comment->user_name}}</h4></div>
                                         <div class="panel-body">
-                                            <h5>Vaamos por ese puro pero ya.</h5>
+                                            <h5>{{$comment->message}}</h5>
                                         </div>
                                     </div>
+                                    @endforeach
+
                                 </div>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Comentar</button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -73,6 +76,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <button onclick="correo({{$coupon->id}})" id="correo" class="btn btn-primary"> Enviar Información por correo</button>
                             </div>
                         </div>
                     </div>
@@ -94,7 +98,15 @@
             $(txt3).append(txt4);
             $(txt1).append(txt3);
 
-            $("#comments").append(txt1);
+            $("#comentarios").append(txt1);
+        }
+
+        function correo(id){
+            var url = '/basicemail/' + id;
+            console.log("Url: "+url);
+            $.get(url,function (res) {
+                console.log("res");
+            });
         }
     </script>
 @endsection

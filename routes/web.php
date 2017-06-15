@@ -11,6 +11,8 @@
 |
 */
 
+use App\Mail\Correo;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,3 +31,7 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'as'=>'admin.'], function
 });
 
 Route::get('/coupon/{id}','CouponController@couponView');
+Route::get('/promotion/{id}','PromotionController@promotionView');
+
+
+Route::get('/basicemail/{id}', 'MailContrioller@basic_email');

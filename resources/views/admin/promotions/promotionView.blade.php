@@ -19,11 +19,10 @@
                         <h4 class="centrarText"><s>${{$promocion->original_price}}</s></h4>
                         <hr/>
                         <h4 class="centrarText">Ahorre: {{$promocion->discount}}%</h4>
-                        <h4 class="centrarText">Perodio: {{$promocion->use_interval}}</h4>
-                        <h4 class="centrarText">Luhar: {{$promocion->city}}</h4>
-                        <h4 class="centrarText">Horario: {{$promocion->schedule}}</h4>
+                        <h4 class="centrarText">Perodio: {{$promocion->saving}}</h4>
+                        <h4 class="centrarText">Luhar: {{$promocion->title}}</h4>
+                        <h4 class="centrarText">Horario: {{$promocion->secondary_description}}</h4>
                         <h4 class="centrarText">Cómo llegar: {{$promocion->address}}</h4>
-                        <h4 class="centrarText">Finaliza: {{$promocion->expiration_date}}</h4>
                     </div>
                 </div>
             </div>
