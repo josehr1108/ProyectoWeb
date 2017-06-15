@@ -309,3 +309,8 @@ hr{
     font-size: medium;
     font-weight: bold;
 }
+
+#map {
+    height: 400px;
+    width: 100%;
+}

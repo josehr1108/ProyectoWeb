@@ -103,6 +103,8 @@
 
     <!-- Scripts -->
     {!!Html::script('js/app.js')!!}
-
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD594GjC_oUJf9Z6X8-a_dcAj6xJZeFeR0&callback=initMap">
+    </script>
 </body>
 </html>
