@@ -38,7 +38,8 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="mapTip">
+        <h2>O buscanos en nuestra oficina!</h2>
         <div id="map"></div>
     </div>
     <script>

@@ -315,3 +315,8 @@ hr{
     height: 400px;
     width: 100%;
 }
+
+#mapTip{
+    text-align: center;
+    padding: 2px auto;
+}
