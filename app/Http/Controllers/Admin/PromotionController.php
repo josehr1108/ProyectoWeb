@@ -86,12 +86,6 @@ class PromotionController extends Controller
         return Redirect::to('admin/promotions');
     }
 
-    public function editView()
-    {
-        $id = Input::get('id');
-        return view('admin.promotions.update', compact($id));
-    }
-
     public function update(Request $request, $id)
     {
         $state = 'Listo';
@@ -99,18 +93,20 @@ class PromotionController extends Controller
         $alert_class = 'alert-success';
         $promotion = Promotion::find($id);
         if($promotion){
+            $saving = number_format($request['discount'] / 100 * $request['original_price'], 0, '', '');
+            $currentPrice = $request['original_price'] - $saving;
             try{
-                $promotion->title = $request->title;
-                $promotion->description = $request->description;
-                $promotion->secondary_description = $request->secondary_description;
-                $promotion->image = $request->image;
-                $promotion->discount = $request->discount;
-                $promotion->web_page = $request->web_page;
-                $promotion->original_price = $request->original_price;
-                $promotion->current_price = $request->current_price;
-                $promotion->saving = $request->saving;
-                $promotion->discount = $request->discount;
-                $promotion->address = $request->address;
+                $promotion->title = $request['title'];
+                $promotion->description = $request['description'];
+                $promotion->secondary_description = $request['secondary_description'];
+                $promotion->image = $request['image'];
+                $promotion->discount = $request['discount'];
+                $promotion->web_page = $request['web_page'];
+                $promotion->original_price = $request['original_price'];
+                $promotion->current_price = $currentPrice;
+                $promotion->saving = $saving;
+                $promotion->discount = $request['discount'];
+                $promotion->address = $request['address'];
                 $promotion->save();
             }catch (Exception $exception){
                 $state = 'Error';
@@ -128,8 +124,13 @@ class PromotionController extends Controller
         return Redirect::to('admin/promotions');
     }
 
-    // Se usa en lugar de 'destroy', ya que este dio algunos problemas.
     public function show($id)
+    {
+        $promotion = Promotion::find($id);
+        return view('admin.promotions.update')->with(['promotion'=>$promotion]);
+    }
+
+    public function destroy($id)
     {
         $state = 'Listo';
         $message = 'La promoción fue eliminada exitosamente.';

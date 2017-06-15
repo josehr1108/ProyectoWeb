@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default shadow">
-                <div class="panel-heading"><b>Create new promotion</b></div>
+                <div class="panel-heading"><b>Crear una nueva promoción</b></div>
                 <div class="panel-body">
                     {!!Form::open(['route'=>'admin.promotions.store', 'method'=>'POST', 'class'=>'form-horizontal'])!!}
                         {{ csrf_field() }}
