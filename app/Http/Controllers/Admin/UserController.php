@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = DB::table('users')->where('userType', 'Usuario')->get();
+        $users = DB::table('users')->where('userType', 'Usuario')->paginate(10);
         return view('admin.users.index', compact('users'));
     }
 
