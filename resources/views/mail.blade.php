@@ -1,9 +1,9 @@
-Información: {{$information}}
-Precio Actual: ${{$current_price}}
-Precio Original ${{$original_price}}
-Ahorre: {{$discount}}%
-Perodio: {{$use_interval}}
-Luhar: {{$city}}
-Horario: {{$schedule}}
-Cómo llegar: {{$address}}
-Finaliza: {{$expiration_date}}
+Información: {{$coupon->information}}
+Precio Actual: ${{$coupon->current_price}}
+Precio Original ${{$coupon->original_price}}
+Ahorre: {{$coupon->discount}}%
+Perodio: {{$coupon->use_interval}}
+Luhar: {{$coupon->city}}
+Horario: {{$coupon->schedule}}
+Cómo llegar: {{$coupon->address}}
+Finaliza: {{$coupon->expiration_date}}
