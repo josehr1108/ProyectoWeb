@@ -12,11 +12,11 @@ class MailContrioller extends Controller
 {
     //
     public function basic_email($id){
-        $coupon = Coupon::find($id)->toJson();
+        $coupon = Coupon::find($id);
         $user = Auth::user();
         $userName = $user->name;
         $userEmail = $user->email;
-        Mail::send(['text'=>'mail'], ['coupon' => json_decode($coupon)], function ($message) use ($userName, $userEmail) {
+        Mail::send(['text'=>'mail'], ['coupon' =>$coupon], function ($message) use ($userName, $userEmail) {
             $message->to($userEmail,$userName)->subject('Información del Cupon');
             $message->from('wikicoupon2014.15@gmail.com','wiki Coupon');
         });
