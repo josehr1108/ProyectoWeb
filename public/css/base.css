@@ -156,11 +156,12 @@
 
 footer{
     background-color: #124857;
+    height: 100%;
 }
 
 #footerContainer{
     padding: 2%;
-    height: 150px;
+    height: 100%;
     text-align: center;
     color: white;
 }
@@ -307,4 +308,15 @@ hr{
     text-shadow: 2px 2px 3px #000000;
     font-size: medium;
     font-weight: bold;
+}
+
+#map {
+    margin: 0 auto;
+    height: 400px;
+    width: 100%;
+}
+
+#mapTip{
+    text-align: center;
+    padding: 2px auto;
 }

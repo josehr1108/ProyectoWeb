@@ -14,6 +14,7 @@ class MailContrioller extends Controller
     public function basic_email($id){
         $coupon = Coupon::find($id)->toJson();
         $user = Auth::user();
+        dd($coupon);
         $userName = $user->name;
         $userEmail = $user->email;
         Mail::send(['text'=>'mail'], ['coupon' => json_decode($coupon)], function ($message) use ($userName, $userEmail) {

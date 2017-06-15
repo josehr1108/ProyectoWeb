@@ -40,4 +40,9 @@ class HomeController extends Controller
             ->toJson();
         return view('home',['cupones' => json_decode($coupons),'promociones' => json_decode($promotions),'top5Coupons' => json_decode($top5Coupons),'top5Promotions' => json_decode($top5Promotions)]);
     }
+
+    public function contact()
+    {
+        return view('contacto');
+    }
 }

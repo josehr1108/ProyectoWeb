@@ -69,7 +69,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button onclick="newComent({{Auth::user()}},{{$coupon->id}})" type="button" class="btn btn-primary">Comentar</button>
+                                                <button onclick="newComent({{Auth::user()}},{{$promocion->id}})" type="button" class="btn btn-primary">Comentar</button>
                                             </div>
                                         </div>
                                     </div>
