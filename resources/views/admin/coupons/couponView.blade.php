@@ -90,7 +90,7 @@
             var mensaje = $('#message-text').val();
             var url = '/commentCoupon/' + couponId +'/'+ userName+'/'+mensaje;
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: url,
                 success: function (res) {
                     console.log(res.data);
