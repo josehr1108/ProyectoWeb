@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Promotion;
+use App\PromotionComment;
 
 class PromotionController extends Controller
 {
@@ -89,6 +90,7 @@ class PromotionController extends Controller
 
     public function promotionView($id){
         $promocion = Promotion::find($id)->toJson();
-        return view('admin.promotions.promotionView',['promocion' => json_decode($promocion)]);
+        $comments = PromotionComment::where('promotionId',$id)->get()->toJson();
+        return view('admin.promotions.promotionView',['promocion' => json_decode($promocion)],['comments' => json_decode($comments)]);
     }
 }

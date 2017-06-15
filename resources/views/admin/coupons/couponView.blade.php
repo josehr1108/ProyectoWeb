@@ -71,7 +71,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button onclick="newComent()" type="button" class="btn btn-primary">Comentar</button>
+                                                <button onclick="newComent({{Auth::user()}},{{$coupon->id}})" type="button" class="btn btn-primary">Comentar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -85,20 +85,28 @@
         </div>
     </div>
     <script>
-        function newComent() {
-            var txt1 = $("<div></div>").addClass('panel panel-primary bajito');
-            var txt2 = $("<div></div>").addClass( 'panel-heading infoCoupon');
-            var txt5 = "<h4>{{Auth::user()->name}}</h4>";
-            $(txt2).append(txt5);
-            $(txt1).append(txt2);
+        function newComent(user, couponId) {
+            var userName = user.name;
+            var userEmail = user.email;
+            var mensaje = $('#message-text').val();
 
-            var txt3 = $("<div></div>").addClass('panel-body');
-            var textArea = $('#message-text').val();
-            var txt4 = "<h5>"+ textArea + "</h5>";
-            $(txt3).append(txt4);
-            $(txt1).append(txt3);
+                var comment = {'user_name':userName, 'message':mensaje, 'email':userEmail, 'couponId':couponId};
 
-            $("#comentarios").append(txt1);
+            var url = '/commentCoupon';
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: comment,
+                success: function (res) {
+                    console.log(res.data);
+                },
+                error: function (err) {
+                    console.log(err.data);
+                }
+            });
+            //$.post();
+
+            //$("#comentarios").append(txt1);
         }
 
         function correo(id){

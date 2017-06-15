@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Coupon;
 use App\CouponComment;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class CouponController extends Controller
 {
@@ -130,5 +131,16 @@ class CouponController extends Controller
         $coupon = Coupon::find($id)->toJson();
         $comments = CouponComment::where('couponId',$id)->get()->toJson();
         return view('admin.coupons.couponView',['coupon' => json_decode($coupon)],['comments' => json_decode($comments)]);
+    }
+
+    public function commentCoupon(Request $request){
+        try{
+            $req = $request->user_name;
+            dd($req);
+            return response()->json(['name'=> $req]);
+        }catch (Exception $e){
+            return response()->json(['name' => $e->getMessage()]);
+        }
+
     }
 }
