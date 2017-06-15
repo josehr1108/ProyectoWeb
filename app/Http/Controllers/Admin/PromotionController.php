@@ -62,11 +62,11 @@ class PromotionController extends Controller
         $promotion = Promotion::find($id);
         if($promotion){
             try{
-                if($promotion->status == 'Activo'){
-                    $promotion->status = 'Desactivo';
+                if($promotion->status == 'activo'){
+                    $promotion->status = 'inactivo';
                     $message = 'La promoción fue desactivada exitosamente.';
                 }else{
-                    $promotion->status = 'Activo';
+                    $promotion->status = 'activo';
                     $message = 'La promoción fue activada exitosamente.';
                 }
                 $promotion->save();
@@ -127,7 +127,7 @@ class PromotionController extends Controller
     public function show($id)
     {
         $promotion = Promotion::find($id);
-        return view('admin.promotions.update')->with(['promotion'=>$promotion]);
+        return view('admin.promotions.update', compact('promotion'));
     }
 
     public function destroy($id)
