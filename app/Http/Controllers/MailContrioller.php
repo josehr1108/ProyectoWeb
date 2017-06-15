@@ -16,10 +16,8 @@ class MailContrioller extends Controller
         $user = Auth::user();
         $userName = $user->name;
         $userEmail = $user->email;
-        $couponImage = $coupon->image;
-        Mail::send(['text'=>'mail'], ['coupon' => json_decode($coupon)], function ($message) use ($couponImage, $userName, $userEmail) {
+        Mail::send(['text'=>'mail'], ['coupon' => json_decode($coupon)], function ($message) use ($userName, $userEmail) {
             $message->to($userEmail,$userName)->subject('Información del Cupon');
-            $message->attach($couponImage);
             $message->from('wikicoupon2014.15@gmail.com','wiki Coupon');
         });
     }
