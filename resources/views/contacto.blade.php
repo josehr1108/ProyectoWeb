@@ -44,13 +44,13 @@
     </div>
     <script>
         function initMap() {
-            var uluru = {lat: -25.363, lng: 131.044};
+            var moviles = {lat: 10.361073, lng: -84.510032};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 4,
-                center: uluru
+                center: moviles
             });
             var marker = new google.maps.Marker({
-                position: uluru,
+                position: moviles,
                 map: map
             });
         }
