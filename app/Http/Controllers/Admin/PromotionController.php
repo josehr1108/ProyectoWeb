@@ -41,7 +41,7 @@ class PromotionController extends Controller
                 'saving' => $saving,
                 'discount' => $request['discount'],
                 'address' => $request['address'],
-                'status' => 'Activo',
+                'status' => 'activo',
             ]);
         }catch(Exception $exception){
             $state = 'Error';
