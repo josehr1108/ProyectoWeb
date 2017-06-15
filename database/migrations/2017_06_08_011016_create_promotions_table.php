@@ -15,16 +15,16 @@ class CreatePromotionsTable extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title',200);
-            $table->string('description',500);
-            $table->string('secondary_description',500);
-            $table->string('image',500);
-            $table->string('web_page');
+            $table->string('title',300);
+            $table->string('description',600);
+            $table->string('secondary_description',600);
+            $table->string('image',600);
+            $table->string('web_page',200);
             $table->integer('original_price');
             $table->integer('current_price');
             $table->integer('saving');
             $table->tinyInteger('discount');
-            $table->string('address',250);
+            $table->string('address',400);
             $table->string('status')->default('activo');
             $table->integer('visitCount')->default(0);
             $table->timestamps();
