@@ -38,3 +38,5 @@ Route::get('/basicemail/{id}', 'MailContrioller@basic_email');
 Route::get('/basicemailpro/{id}', 'MailContrioller@basic_emailPro');
 
 Route::get('/commentCoupon/{id}/{user_name}/{message}', 'CouponController@commentCoupon');
+Route::get('/commentPromo/{id}/{user_name}/{message}', 'CouponController@commentPromo');
+

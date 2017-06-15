@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Coupon;
 use App\CouponComment;
+use App\PromotionComment;
 use Illuminate\Http\Request;
 use Mockery\Exception;
 
@@ -142,10 +143,13 @@ class CouponController extends Controller
         $comment->message = $message;
         $comment->couponId = $id;
         $comment->save();
+    }
 
-        $comments = CouponComment::where('couponId',$id)->get()->toJson();
-        $couponObj = Coupon::find($id);
-        $coupon = $couponObj->toJson();
-        return view('admin.coupons.couponView',['coupon' => json_decode($coupon),'comments' => json_decode($comments)]);
+    public function commentPromo($id,$user_name, $message){
+        $comment = new PromotionComment();
+        $comment->user_name = $user_name;
+        $comment->message = $message;
+        $comment->promotionId = $id;
+        $comment->save();
     }
 }
