@@ -104,9 +104,6 @@
                     console.log(err.data);
                 }
             });
-            //$.post();
-
-            //$("#comentarios").append(txt1);
         }
 
         function correo(id){
