@@ -58,5 +58,6 @@
     </tbody>
     @endforeach
     </tbody>
+    {{$coupons->links()}}
 </table>
 @endsection
