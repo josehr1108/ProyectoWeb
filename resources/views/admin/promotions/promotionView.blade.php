@@ -88,7 +88,7 @@
         }
 
         function correo(id){
-            var url = '/basicemail/' + id;
+            var url = '/basicemailpro/' + id;
             console.log("Url: "+url);
             $.get(url,function (res) {
                 console.log("res");

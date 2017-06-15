@@ -87,12 +87,10 @@
     <script>
         function newComent(user, couponId) {
             var userName = user.name;
-            var userEmail = user.email;
             var mensaje = $('#message-text').val();
+            var comment = {'user_name':userName, 'message':mensaje};
 
-                var comment = {'user_name':userName, 'message':mensaje, 'email':userEmail, 'couponId':couponId};
-
-            var url = '/commentCoupon';
+            var url = '/commentCoupon/' + couponId;
             $.ajax({
                 type: "POST",
                 url: url,
@@ -104,9 +102,6 @@
                     console.log(err.data);
                 }
             });
-            //$.post();
-
-            //$("#comentarios").append(txt1);
         }
 
         function correo(id){
