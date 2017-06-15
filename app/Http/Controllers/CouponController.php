@@ -142,5 +142,10 @@ class CouponController extends Controller
         $comment->message = $message;
         $comment->couponId = $id;
         $comment->save();
+
+        $comments = CouponComment::where('couponId',$id)->get()->toJson();
+        $couponObj = Coupon::find($id);
+        $coupon = $couponObj->toJson();
+        return view('admin.coupons.couponView',['coupon' => json_decode($coupon),'comments' => json_decode($comments)]);
     }
 }
