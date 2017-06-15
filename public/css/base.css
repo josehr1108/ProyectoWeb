@@ -161,7 +161,7 @@ footer{
 
 #footerContainer{
     padding: 2%;
-    height: 150px;
+    height: 100%;
     text-align: center;
     color: white;
 }
