@@ -136,10 +136,10 @@ class CouponController extends Controller
         return view('admin.coupons.couponView',['coupon' => json_decode($coupon),'comments' => json_decode($comments)]);
     }
 
-    public function commentCoupon(Request $request, $id){
+    public function commentCoupon($id,$user_name, $message){
         $comment = new CouponComment();
-        $comment->user_name = $request->user_name;
-        $comment->message = $request->message;
+        $comment->user_name = $user_name;
+        $comment->message = $message;
         $comment->couponId = $id;
         $comment->save();
     }
