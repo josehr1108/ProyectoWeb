@@ -11,8 +11,11 @@
                         @foreach($top5Coupons as $topCoupon)
                         <li>
                             <a href="/coupon/{{$topCoupon->id}}">
-                                <div class="row">
-                                    <div class="top5ImgContainer" style="background: #1b6d85 url({{$topCoupon->image}}) no-repeat center"></div>
+                                <div>
+                                    <!-- style="background: #1b6d85 url({{$topCoupon->image}}) no-repeat center" -->
+                                    <div class="top5ImgContainer">
+                                        <img class="img-responsive" src="{{$topCoupon->image}}">
+                                    </div>
                                     <div class="vertical-center"><i class="glyphicon glyphicon-star"></i>{{$topCoupon->information}}</div>
                                 </div>
 
@@ -25,7 +28,11 @@
                             <li>
                                 <a href="/promotion/{{$topPromotion->id}}">
                                     <div class="row">
-                                        <div class="top5ImgContainer" style="background: #1b6d85 url({{$topPromotion->image}}) no-repeat center"></div>
+                                        <div class="top5ImgContainer">
+                                            <div class="top5ImgContainer">
+                                                <img class="img-responsive" src="{{$topPromotion->image}}">
+                                            </div>
+                                        </div>
                                         <div class="vertical-center"><i class="glyphicon glyphicon-star"></i>{{$topPromotion->title}}</div>
                                     </div>
 
@@ -65,7 +72,8 @@
                             <li>
                                 <div class="elementContainer">
                                     <a href="/coupon/{{$cupon->id}}">
-                                        <div class="imgContainer shadow" style="background: #1b6d85 url({{$cupon->image}}) no-repeat center">
+                                        <div class="imgContainer shadow">
+                                            <img class="img-responsive" src="{{$cupon->image}}">
                                             <div class="priceTip">¢{{$cupon->current_price}}</div>
                                             <div class="discountTip">{{$cupon->discount}}% descuento</div>
                                         </div>
@@ -112,7 +120,8 @@
                                 <li>
                                     <div class="elementContainer">
                                         <a href="/promotion/{{$promocion->id}}">
-                                            <div class="imgContainer shadow" style="background: #1b6d85 url({{$promocion->image}}) no-repeat center">
+                                            <div class="imgContainer shadow">
+                                                <img class="img-responsive" src="{{$promocion->image}}">
                                                 <div class="priceTip2">¢{{$promocion->current_price}}</div>
                                                 <div class="discountTip2">{{$promocion->discount}}% descuento</div>
                                             </div>

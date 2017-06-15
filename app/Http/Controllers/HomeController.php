@@ -26,8 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $coupons = Coupon::all()->toJson();
-        $promotions = Promotion::all()->toJson();
+        $coupons = Coupon::where('status','activo')->get()->toJson();
+        $promotions = Promotion::where('status','activo')->get()->toJson();
         $top5Coupons = DB::table('coupons')
             ->orderBy('visitCount', 'desc')
             ->limit(5)
