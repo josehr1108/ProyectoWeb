@@ -36,9 +36,9 @@
         <td><textarea class="textarea-table" rows="5" cols="30" readonly>{{$promotion->secondary_description}}</textarea></td>
         <td><textarea class="textarea-table" rows="3" cols="25" readonly>{{$promotion->image}}</textarea></td>
         <td>{{$promotion->web_page}}</td>
-        <td>{{number_format($promotion->original_price, 0, '', ' ')}}¢</td>
-        <td>{{number_format($promotion->current_price, 0, '', ' ')}}¢</td>
-        <td>{{number_format($promotion->saving, 0, '', ' ')}}¢</td>
+        <td>¢{{number_format($promotion->original_price, 0, '', ' ')}}</td>
+        <td>¢{{number_format($promotion->current_price, 0, '', ' ')}}</td>
+        <td>¢{{number_format($promotion->saving, 0, '', ' ')}}</td>
         <td>{{$promotion->discount}}%</td>
         <td><textarea class="textarea-table" rows="3" cols="25" readonly>{{$promotion->address}}</textarea></td>
         <td>
