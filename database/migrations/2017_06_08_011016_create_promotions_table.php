@@ -23,7 +23,7 @@ class CreatePromotionsTable extends Migration
             $table->integer('original_price');
             $table->integer('current_price');
             $table->integer('saving');
-            $table->tinyInteger('discount');
+            $table->integer('discount');
             $table->string('address',400);
             $table->string('status')->default('activo');
             $table->integer('visitCount')->default(0);
