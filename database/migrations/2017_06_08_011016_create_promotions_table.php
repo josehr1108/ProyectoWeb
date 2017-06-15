@@ -25,7 +25,7 @@ class CreatePromotionsTable extends Migration
             $table->integer('saving');
             $table->tinyInteger('discount');
             $table->string('address');
-            $table->string('status');
+            $table->string('status')->default('activo');
             $table->integer('visitCount')->default(0);
             $table->timestamps();
         });
