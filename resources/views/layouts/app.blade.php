@@ -38,7 +38,6 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Wiki') }}
                     </a>
-                    <a href="home/contacto">Contacto</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
