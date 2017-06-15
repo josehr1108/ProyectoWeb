@@ -11,7 +11,7 @@
     @endif
     <div class="centered-div">
         <form action="{{ url('admin/promotions/create') }}" class="button-container">
-            <input type="submit" value="Crear nueva promoción" class="btn button"/>
+            <input type="submit" value="Crear nueva promoción" class="btn btn-success"/>
         </form>
     </div>
     <table class="table">
@@ -42,12 +42,15 @@
             <td>{{$promotion->discount}}%</td>
             <td><textarea class="textarea-table" rows="3" cols="25" readonly>{{$promotion->address}}</textarea></td>
             <td>
-                {!!link_to('admin/promotions/editView?id='.$promotion->id, $title='Editar', $parameters=['class'=>'btn button'], $secure=null)!!}
-                {!!link_to_route('admin.promotions.destroy', $title='Eliminar', $parameters=$promotion->id, $attributes=['class'=>'btn button'])!!}
+                {!!link_to_route('admin.promotions.show', $title='Editar', $parameters=$promotion->id, $attributes=['class'=>'btn btn-primary'])!!}
+                {!!Form::open(['method' => 'DELETE', 'route' => ['admin.promotions.destroy', $promotion->id]])!!}
+                    {!!Form::hidden('id', $promotion->id)!!}
+                    {!!Form::submit('Eliminar', ['class' => 'btn btn-danger'])!!}
+                {!!Form::close()!!}
                 @if($promotion->status == 'Activo')
-                    {!!link_to_route('admin.promotions.edit', $title='Desactivar', $parameters=$promotion->id, $attributes=['class'=>'btn button'])!!}
+                    {!!link_to_route('admin.promotions.edit', $title='Desactivar', $parameters=$promotion->id, $attributes=['class'=>'btn btn-warning'])!!}
                 @else
-                    {!!link_to_route('admin.promotions.edit', $title='Activar', $parameters=$promotion->id, $attributes=['class'=>'btn button'])!!}
+                    {!!link_to_route('admin.promotions.edit', $title='Activar', $parameters=$promotion->id, $attributes=['class'=>'btn btn-warning'])!!}
                 @endif
             </td>
         </tbody>
