@@ -56,5 +56,6 @@
     </tbody>
     @endforeach
     </tbody>
+    {{$promotions->links()}}
 </table>
 @endsection

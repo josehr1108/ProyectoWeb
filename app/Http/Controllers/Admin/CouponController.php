@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Coupon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 use Redirect;
 
@@ -13,7 +14,7 @@ class CouponController extends Controller
 
     public function index()
     {
-        $coupons = Coupon::All();
+        $coupons = DB::table('coupons')->paginate(5);
         return view('admin.coupons.index', compact('coupons'));
     }
 
