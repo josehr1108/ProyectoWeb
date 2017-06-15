@@ -128,9 +128,12 @@ class CouponController extends Controller
     }
 
     public function couponView($id){
-        $coupon = Coupon::find($id)->toJson();
         $comments = CouponComment::where('couponId',$id)->get()->toJson();
-        return view('admin.coupons.couponView',['coupon' => json_decode($coupon)],['comments' => json_decode($comments)]);
+        $couponObj = Coupon::find($id);
+        $coupon = $couponObj->toJson();
+        $couponObj->visitCount = $couponObj->visitCount + 1;
+        $couponObj->save();
+        return view('admin.coupons.couponView',['coupon' => json_decode($coupon),'comments' => json_decode($comments)]);
     }
 
     public function commentCoupon(Request $request){
