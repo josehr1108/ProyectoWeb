@@ -4,13 +4,13 @@
 
 let couponOptions = {
     valueNames: [ 'name', 'city','type','expiration_date','discountTip','priceTip'],
-    page: 3,
+    page: 6,
     pagination: true
 };
 
 let promotionOptions = {
     valueNames: [ 'title','description','priceTip2','original_price','saving','discountTip2'],
-    page: 3,
+    page: 6,
     pagination: true
 };
 
