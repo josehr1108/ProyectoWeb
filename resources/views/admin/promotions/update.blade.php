@@ -12,7 +12,7 @@
                         <div class="form-group">
                             {!!Form::label('title', 'Título:', ['class'=>'col-md-4 control-label'])!!}
                             <div class="col-md-6">
-                                {!!Form::text('title', $promotion->title, ['class'=>'form-control', 'required'=>'required', 'autofocus'=>'autofocus'])!!}
+                                {!!Form::text('title', $promotion->title, ['class'=>'form-control', 'required'=>'required'])!!}
                             </div>
                         </div>
                         <div class="form-group">
