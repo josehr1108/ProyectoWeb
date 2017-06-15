@@ -69,7 +69,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button onclick="newComent({{Auth::user()}})" type="button" class="btn btn-primary">Comentar</button>
+                                                <button onclick="newComent({{Auth::user()}},{{$coupon->id}})" type="button" class="btn btn-primary">Comentar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -83,8 +83,20 @@
         </div>
     </div>
     <script>
-        function newComent(user) {
-
+        function newComent(user, couponId) {
+            var userName = user.name;
+            var mensaje = $('#message-text').val();
+            var url = '/commentPromo/' + couponId +'/'+ userName+'/'+mensaje;
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (res) {
+                    console.log(res.data);
+                },
+                error: function (err) {
+                    console.log(err.data);
+                }
+            });
         }
 
         function correo(id){
